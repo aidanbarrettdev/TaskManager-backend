@@ -10,13 +10,12 @@ app.use((req, res, next) => {
   //log out my requests
   next();
 });
-
+app.use(cors("https://taskmanager-04c5.onrender.com"));
 app.use(express.json()); //access to request.body
 
 //routes
 app.use("/api/tasks", taskRoutes);
 
-app.use(cors("https://taskmanager-04c5.onrender.com"));
 //mongoose-connect to db .
 
 mongoose
