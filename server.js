@@ -3,6 +3,7 @@ const app = express();
 require("dotenv").config();
 const taskRoutes = require("./routes/taskRoutes");
 const mongoose = require("mongoose");
+const cors = require("cors");
 //middleware
 app.use((req, res, next) => {
   console.log(req.path, req.method);
@@ -15,6 +16,7 @@ app.use(express.json()); //access to request.body
 //routes
 app.use("/api/tasks", taskRoutes);
 
+app.use(cors("https://taskmanager-04c5.onrender.com"));
 //mongoose-connect to db
 
 mongoose
